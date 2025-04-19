@@ -4,8 +4,8 @@ public class Enseignant extends User {
     private int anneeRecrutement;
     private String faculte;
 
-    public Enseignant(String nom, String prenom, String matricule, double reputation, int anneeRecrutement, String faculte) {
-        super(nom, prenom, matricule, reputation);
+    public Enseignant(String nom, String prenom, String matricule, double reputation, Profile profile, int anneeRecrutement, String faculte) {
+        super(nom, prenom, matricule, reputation, profile); // Pass the Profile object
         this.anneeRecrutement = anneeRecrutement;
         this.faculte = faculte;
     }

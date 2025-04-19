@@ -5,8 +5,8 @@ public class ATS extends User {
     private String serviceRattachement;
 
     // Constructor
-    public ATS(String nom, String prenom, String matricule, double reputation, int anneeRecrutement, String serviceRattachement) {
-        super(nom, prenom, matricule, reputation); // Call the superclass constructor
+    public ATS(String nom, String prenom, String matricule, double reputation, Profile profile, int anneeRecrutement, String serviceRattachement) {
+        super(nom, prenom, matricule, reputation, profile); // Pass the Profile object
         this.anneeRecrutement = anneeRecrutement;
         this.serviceRattachement = serviceRattachement;
     }

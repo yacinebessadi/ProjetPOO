@@ -5,8 +5,8 @@ public class Etudiant extends User {
     private String faculte;
     private String specialite;
 
-    public Etudiant(String nom, String prenom, String matricule, double reputation, int anneeAdmission, String faculte, String specialite) {
-        super(nom, prenom, matricule, reputation);
+    public Etudiant(String nom, String prenom, String matricule, double reputation, Profile profile, int anneeAdmission, String faculte, String specialite) {
+        super(nom, prenom, matricule, reputation, profile); // Pass the Profile object
         this.anneeAdmission = anneeAdmission;
         this.faculte = faculte;
         this.specialite = specialite;
