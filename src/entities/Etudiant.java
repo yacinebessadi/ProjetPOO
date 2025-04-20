@@ -4,12 +4,14 @@ public class Etudiant extends User {
     private int anneeAdmission;
     private String faculte;
     private String specialite;
+    private static int nbEtudiants=0;
 
     public Etudiant(String nom, String prenom, String matricule, double reputation, Profile profile, int anneeAdmission, String faculte, String specialite) {
         super(nom, prenom, matricule, reputation, profile); // Pass the Profile object
         this.anneeAdmission = anneeAdmission;
         this.faculte = faculte;
         this.specialite = specialite;
+        nbEtudiants++;
     }
 
     public int getAnneeAdmission() {
@@ -34,6 +36,9 @@ public class Etudiant extends User {
 
     public void setSpecialite(String specialite) {
         this.specialite = specialite;
+    }
+    public static int getNbEtudiants() {
+        return nbEtudiants;
     }
 
     @Override

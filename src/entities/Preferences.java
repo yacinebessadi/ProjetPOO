@@ -15,6 +15,14 @@ public class Preferences {
         this.musiquePreferences = musiquePreferences;
         this.bagagesPreferences = bagagesPreferences;
     }
+    
+    // Implicite
+    public Preferences() {
+        this.sexePreferences = null;
+        this.musiquePreferences = null;
+        this.bagagesPreferences = null;
+    }
+
 
     // Getters and Setters
     public SexePreferences getSexePreferences() {

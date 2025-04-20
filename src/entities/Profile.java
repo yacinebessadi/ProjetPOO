@@ -7,13 +7,24 @@ public class Profile {
     private StatusUser statut; // User's status (e.g., CHAUFFEUR, PASSAGER)
     private TypeCourse typeCourse; // Trip type preference
     private Preferences preferences; // Encapsulates sexe, musique, and bagages preferences
-
-    // Constructor
-    public Profile(StatusUser statut, TypeCourse typeCourse, Preferences preferences) {
+    private Disponibilite disponibilite; // User's availability
+    
+    // Constructor explicite
+    public Profile(StatusUser statut, TypeCourse typeCourse, Preferences preferences, Disponibilite disponibilite) {
         this.statut = statut;
         this.typeCourse = typeCourse;
         this.preferences = preferences;
+        this.disponibilite = disponibilite;
     }
+    // implicite
+    public Profile() {
+        this.statut = null;
+        this.typeCourse = null;
+        this.preferences = null;
+        this.disponibilite = null;
+    }
+
+    
 
     // Getters and Setters
     public StatusUser getStatut() {
@@ -40,12 +51,21 @@ public class Profile {
         this.preferences = preferences;
     }
 
+    public Disponibilite getDisponibilite() {
+        return disponibilite;
+    }
+
+    public void setDisponibilite(Disponibilite disponibilite) {
+        this.disponibilite = disponibilite;
+    }
+
     @Override
     public String toString() {
         return "Profile{" +
                 "statut=" + statut +
                 ", typeCourse=" + typeCourse +
                 ", preferences=" + preferences +
+                ", disponibilite=" + disponibilite +
                 '}';
     }
 }

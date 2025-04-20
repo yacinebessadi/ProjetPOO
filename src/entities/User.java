@@ -1,6 +1,5 @@
 package entities;
 
-import enums.StatusUser;
 
 public class User {
     private String nom;
@@ -9,6 +8,8 @@ public class User {
     private double reputation;
     private Profile profile; // Profile object with StatusUser
 
+ 
+
     // Constructor
     public User(String nom, String prenom, String matricule, double reputation, Profile profile) {
         this.nom = nom;
@@ -16,6 +17,16 @@ public class User {
         this.matricule = matricule;
         this.reputation = reputation;
         this.profile = profile;
+     
+    }
+    //constr implicite
+    public User() {
+        this.nom = null;
+        this.prenom = null;
+        this.matricule = null;
+        this.reputation = 0.0;
+        this.profile = null;
+
     }
 
     // Getters and Setters
@@ -58,6 +69,7 @@ public class User {
     public void setProfile(Profile profile) {
         this.profile = profile;
     }
+ 
 
     // toString method for displaying user information
     @Override

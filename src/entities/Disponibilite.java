@@ -8,12 +8,21 @@ import java.util.List;
 public class Disponibilite {
     private DisponibiliteType type; // Type of availability (daily, weekly, always)
     private List<LocalDateTime> horaires; // List of specific availability times
+    private boolean disponibleOuiOuNon; // Indicates if the user is currently available
 
     // Constructor
-    public Disponibilite(DisponibiliteType type, List<LocalDateTime> horaires) {
+    public Disponibilite(DisponibiliteType type, List<LocalDateTime> horaires, boolean disponibleOuiOuNon) {
         this.type = type;
         this.horaires = horaires;
+        this.disponibleOuiOuNon = disponibleOuiOuNon;
     }
+      // Implicit constructor
+      public Disponibilite() {
+        this.type = null;
+        this.horaires = null;
+        this.disponibleOuiOuNon = false;
+    }
+
 
     // Getters and Setters
     public DisponibiliteType getType() {
@@ -32,11 +41,20 @@ public class Disponibilite {
         this.horaires = horaires;
     }
 
+    public boolean isDisponibleOuiOuNon() {
+        return disponibleOuiOuNon;
+    }
+
+    public void setDisponibleOuiOuNon(boolean disponibleOuiOuNon) {
+        this.disponibleOuiOuNon = disponibleOuiOuNon;
+    }
+
     @Override
     public String toString() {
         return "Disponibilite{" +
                 "type=" + type +
                 ", horaires=" + horaires +
+                ", disponibleOuiOuNon=" + disponibleOuiOuNon +
                 '}';
     }
 }
