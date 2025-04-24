@@ -8,6 +8,8 @@ public class User {
     private String matricule;
     private double reputation;
     private Profile profile; // Profile object with StatusUser
+    
+    private int anestest;
 
     // Constructor
     public User(String nom, String prenom, String matricule, double reputation, Profile profile) {
