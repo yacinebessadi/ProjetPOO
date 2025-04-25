@@ -9,7 +9,7 @@ public class User {
     private double reputation;
     private Profile profile; // Profile object with StatusUser
     
-    private int anestest;
+    private int anes_test;
 
     // Constructor
     public User(String nom, String prenom, String matricule, double reputation, Profile profile) {
