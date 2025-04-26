@@ -1,6 +1,7 @@
 package entities;
 
 import enums.StatusUser;
+import java.util.ArrayList;
 
 public class User {
     private String nom;
@@ -8,8 +9,9 @@ public class User {
     private String matricule;
     private double reputation;
     private Profile profile; // Profile object with StatusUser
+    private ArrayList<Review> receivedReviews = new ArrayList<>(); //List to store reviews
     
-    private int anes_test;
+    
 
     // Constructor
     public User(String nom, String prenom, String matricule, double reputation, Profile profile) {
@@ -60,7 +62,20 @@ public class User {
     public void setProfile(Profile profile) {
         this.profile = profile;
     }
-
+    
+    // getreviews method to display the list of reviews
+    public void getreviews() {
+    	if (receivedReviews.size() == 0) {
+            System.out.println(nom + " has no reviews yet.");
+            return;
+        }
+    	
+    	System.out.println("Reviews for " + nom + ":");
+        for (Review review : receivedReviews) {
+            System.out.println(" - " + review);
+        }
+    }
+    
     // toString method for displaying user information
     @Override
     public String toString() {
@@ -72,4 +87,27 @@ public class User {
                 ", profile=" + profile +
                 '}';
     }
+    
+    // addReview method to add a review to the list of reviews and update the user's reputation
+    public void addReview(Review review) {
+    	receivedReviews.add(review);
+    	updatereputation();
+    }
+    
+    // updatereputation method to calculate the user's reputation based on the reviews they have
+    private void updatereputation() {
+    	int sum = 0;
+    	int size = receivedReviews.size();
+    	
+    	if (size == 0) {
+    		return;
+    	}
+    	
+    	for (int i = 0; i < size; i++) {
+    		sum = sum + receivedReviews.get(i).getRating();
+    	}
+    	reputation = (double) sum / size ;
+    }
+    
+    
 }
