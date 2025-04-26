@@ -15,14 +15,13 @@ public class Preferences {
         this.musiquePreferences = musiquePreferences;
         this.bagagesPreferences = bagagesPreferences;
     }
-    
-    // Implicite
-    public Preferences() {
-        this.sexePreferences = null;
-        this.musiquePreferences = null;
-        this.bagagesPreferences = null;
-    }
 
+    // Default constructor
+    public Preferences() {
+        this.sexePreferences = SexePreferences.SANS_PREFERENCE;
+        this.musiquePreferences = MusiquePreferences.SANS_PREFERENCE;
+        this.bagagesPreferences = BagagesPreferences.SANS_PREFERENCE;
+    }
 
     // Getters and Setters
     public SexePreferences getSexePreferences() {
@@ -48,6 +47,14 @@ public class Preferences {
     public void setBagagesPreferences(BagagesPreferences bagagesPreferences) {
         this.bagagesPreferences = bagagesPreferences;
     }
+        // Logic for comparing preferences
+        public boolean isCompatibleWith(Preferences other) {
+            return (this.sexePreferences == other.sexePreferences || this.sexePreferences == SexePreferences.SANS_PREFERENCE) &&
+                   (this.musiquePreferences == other.musiquePreferences || this.musiquePreferences == MusiquePreferences.SANS_PREFERENCE) &&
+                   (this.bagagesPreferences == other.bagagesPreferences || this.bagagesPreferences == BagagesPreferences.SANS_PREFERENCE);
+        }
+    
+    
 
     @Override
     public String toString() {

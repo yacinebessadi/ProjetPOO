@@ -1,14 +1,12 @@
 package entities;
 
-
-public class User {
+public abstract class User {
     private String nom;
     private String prenom;
     private String matricule;
+
     private double reputation;
     private Profile profile; // Profile object with StatusUser
-
- 
 
     // Constructor
     public User(String nom, String prenom, String matricule, double reputation, Profile profile) {
@@ -17,42 +15,40 @@ public class User {
         this.matricule = matricule;
         this.reputation = reputation;
         this.profile = profile;
-     
     }
-    //constr implicite
+
+    // Default constructor
     public User() {
         this.nom = null;
         this.prenom = null;
         this.matricule = null;
         this.reputation = 0.0;
         this.profile = null;
-
     }
 
     // Getters and Setters
-    public String getNom() {
-        return nom;
-    }
 
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
+   public String getNom() { return nom; }
+
+   // public void setNom(String nom) {
+     //   this.nom = nom;
+    //}
 
     public String getPrenom() {
         return prenom;
     }
 
-    public void setPrenom(String prenom) {
-        this.prenom = prenom;
-    }
+    // public void setPrenom(String prenom) {
+    //     this.prenom = prenom;
+    // }
 
-    public String getMatricule() {
-        return matricule;
-    }
+    // public String getMatricule() {
+    //     return matricule;
+    // }
 
-    public void setMatricule(String matricule) {
-        this.matricule = matricule;
-    }
+    // public void setMatricule(String matricule) {
+    //     this.matricule = matricule;
+    // }
 
     public double getReputation() {
         return reputation;
@@ -66,10 +62,9 @@ public class User {
         return profile;
     }
 
-    public void setProfile(Profile profile) {
-        this.profile = profile;
-    }
- 
+//    public void setProfile(Profile profile) {
+  //      this.profile = profile;
+   // }
 
     // toString method for displaying user information
     @Override
@@ -83,3 +78,7 @@ public class User {
                 '}';
     }
 }
+
+
+
+

@@ -1,5 +1,4 @@
 package entities;
-
 import enums.StatusUser;
 import enums.TypeCourse;
 
@@ -8,6 +7,14 @@ public class Profile {
     private TypeCourse typeCourse; // Trip type preference
     private Preferences preferences; // Encapsulates sexe, musique, and bagages preferences
     private Disponibilite disponibilite; // User's availability
+
+    //ajouter 
+    private int rideCount;  //ajouter une methode qui fait rideCount++
+    
+
+
+
+
     
     // Constructor explicite
     public Profile(StatusUser statut, TypeCourse typeCourse, Preferences preferences, Disponibilite disponibilite) {
@@ -15,6 +22,12 @@ public class Profile {
         this.typeCourse = typeCourse;
         this.preferences = preferences;
         this.disponibilite = disponibilite;
+    }
+    
+    
+    public int icrementRide(){
+       return rideCount++;
+
     }
     // implicite
     public Profile() {
@@ -25,6 +38,14 @@ public class Profile {
     }
 
     
+
+
+
+
+
+
+
+
 
     // Getters and Setters
     public StatusUser getStatut() {

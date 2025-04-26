@@ -41,6 +41,7 @@ public class Etudiant extends User {
         return nbEtudiants;
     }
 
+
     @Override
     public String toString() {
         return super.toString() + ", Etudiant{" +

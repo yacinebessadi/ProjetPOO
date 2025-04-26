@@ -7,22 +7,25 @@ import java.util.List;
 
 public class Disponibilite {
     private DisponibiliteType type; // Type of availability (daily, weekly, always)
-    private List<LocalDateTime> horaires; // List of specific availability times
-    private boolean disponibleOuiOuNon; // Indicates if the user is currently available
+    private List<LocalDateTime> horaires; // List of specific availability times 
+    private Itineraire itineraire; // User's itinerary (single point for passengers, multiple points for drivers)
+
+
 
     // Constructor
-    public Disponibilite(DisponibiliteType type, List<LocalDateTime> horaires, boolean disponibleOuiOuNon) {
+    public Disponibilite(DisponibiliteType type, List<LocalDateTime> horaires, Itineraire itineraire) {
         this.type = type;
         this.horaires = horaires;
-        this.disponibleOuiOuNon = disponibleOuiOuNon;
-    }
-      // Implicit constructor
-      public Disponibilite() {
-        this.type = null;
-        this.horaires = null;
-        this.disponibleOuiOuNon = false;
+        this.itineraire = itineraire;
     }
 
+
+    // Default constructor
+    public Disponibilite() {
+        this.type = null;
+        this.horaires = null;
+        this.itineraire = null;
+    }
 
     // Getters and Setters
     public DisponibiliteType getType() {
@@ -41,20 +44,21 @@ public class Disponibilite {
         this.horaires = horaires;
     }
 
-    public boolean isDisponibleOuiOuNon() {
-        return disponibleOuiOuNon;
+    public Itineraire getItineraire() {
+        return itineraire;
     }
 
-    public void setDisponibleOuiOuNon(boolean disponibleOuiOuNon) {
-        this.disponibleOuiOuNon = disponibleOuiOuNon;
+    public void setItineraire(Itineraire itineraire) {
+        this.itineraire = itineraire;
     }
 
+  
     @Override
     public String toString() {
         return "Disponibilite{" +
                 "type=" + type +
                 ", horaires=" + horaires +
-                ", disponibleOuiOuNon=" + disponibleOuiOuNon +
+                ", itineraire=" + itineraire +
                 '}';
     }
 }
