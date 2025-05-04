@@ -1,0 +1,15 @@
+package enums;
+
+public enum FacultesUSTHB {
+    INFORMATIQUE,
+    MATHEMATIQUES,
+    PHYSIQUE,
+    CHIMIE,
+    BIOLOGIE,
+    GEOLOGIE,
+    GENIE_CIVIL,
+    ELECTRONIQUE,
+    GENIE_INFORMATIQUE,
+    GENIE_DES_PROCEDES,
+    GENIE_MECANIQUE
+}

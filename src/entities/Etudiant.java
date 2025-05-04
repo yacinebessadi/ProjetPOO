@@ -1,12 +1,15 @@
 package entities;
 
+import enums.FacultesUSTHB;
+import enums.Specialite;
+
 public class Etudiant extends User {
     private int anneeAdmission;
-    private String faculte;
-    private String specialite;
+    private FacultesUSTHB faculte;
+    private Specialite specialite;
     private static int nbEtudiants=0;
 
-    public Etudiant(String nom, String prenom, String matricule, double reputation, Profile profile, int anneeAdmission, String faculte, String specialite) {
+    public Etudiant(String nom, String prenom, String matricule, double reputation, Profile profile, int anneeAdmission, FacultesUSTHB faculte, Specialite specialite) {
         super(nom, prenom, matricule, reputation, profile); // Pass the Profile object
         this.anneeAdmission = anneeAdmission;
         this.faculte = faculte;
@@ -22,19 +25,19 @@ public class Etudiant extends User {
         this.anneeAdmission = anneeAdmission;
     }
 
-    public String getFaculte() {
+    public FacultesUSTHB getFaculte() {
         return faculte;
     }
 
-    public void setFaculte(String faculte) {
+    public void setFaculte(FacultesUSTHB faculte) {
         this.faculte = faculte;
     }
 
-    public String getSpecialite() {
+    public Specialite getSpecialite() {
         return specialite;
     }
 
-    public void setSpecialite(String specialite) {
+    public void setSpecialite(Specialite specialite) {
         this.specialite = specialite;
     }
     public static int getNbEtudiants() {

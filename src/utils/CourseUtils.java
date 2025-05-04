@@ -13,7 +13,15 @@ public class CourseUtils {
                driver.getProfile().getStatut() == StatusUser.CHAUFFEUR;
     }
 
-        // example passenger ["Golf","USTHB"]
+        
+    
+    
+    
+    
+    
+    
+    
+    // example passenger ["Golf","USTHB"]
         //DRIVER (usthb is alwyas the last or the first in both lists)  [ "elbiar","Birmouradrais","Golf","Usthb"]
         //example2:
         //passenger[usthb, golf]

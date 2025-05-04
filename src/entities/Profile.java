@@ -11,11 +11,6 @@ public class Profile {
     //ajouter 
     private int rideCount;  //ajouter une methode qui fait rideCount++
     
-
-
-
-
-    
     // Constructor explicite
     public Profile(StatusUser statut, TypeCourse typeCourse, Preferences preferences, Disponibilite disponibilite) {
         this.statut = statut;
@@ -23,7 +18,6 @@ public class Profile {
         this.preferences = preferences;
         this.disponibilite = disponibilite;
     }
-    
     
     public int icrementRide(){
        return rideCount++;
@@ -38,16 +32,7 @@ public class Profile {
     }
 
     
-
-
-
-
-
-
-
-
-
-    // Getters and Setters
+   // Getters and Setters
     public StatusUser getStatut() {
         return statut;
     }
