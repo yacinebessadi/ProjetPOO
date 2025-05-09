@@ -1,14 +1,20 @@
 package entities;
 
+import enums.FacultesUSTHB;
+
 public class ATS extends User {
     private int anneeRecrutement;
     private String serviceRattachement;
+    private static int nbATS=0;
+    private FacultesUSTHB faculte;
 
     // Constructor
-    public ATS(String nom, String prenom, String matricule, double reputation, Profile profile, int anneeRecrutement, String serviceRattachement) {
-        super(nom, prenom, matricule, reputation, profile); // Pass the Profile object
+    public ATS(String nom, String prenom, String matricule, double reputation, Profile profile, int anneeRecrutement, String serviceRattachement, FacultesUSTHB faculte) {
+        super(nom, prenom, matricule, reputation, profile);
         this.anneeRecrutement = anneeRecrutement;
         this.serviceRattachement = serviceRattachement;
+        this.faculte = faculte;
+        nbATS++;
     }
 
     // Getters and Setters
@@ -26,6 +32,14 @@ public class ATS extends User {
 
     public void setServiceRattachement(String serviceRattachement) {
         this.serviceRattachement = serviceRattachement;
+    }
+
+    public static int getNbATS() {
+        return nbATS;
+    }
+
+    public FacultesUSTHB getFaculte() {
+        return faculte;
     }
 
     @Override

@@ -1,13 +1,17 @@
 package entities;
 
+import enums.FacultesUSTHB;
+
 public class Enseignant extends User {
     private int anneeRecrutement;
-    private String faculte;
+    private FacultesUSTHB faculte;
+    private static int nbEnseignants=0;
 
-    public Enseignant(String nom, String prenom, String matricule, double reputation, Profile profile, int anneeRecrutement, String faculte) {
+    public Enseignant(String nom, String prenom, String matricule, double reputation, Profile profile, int anneeRecrutement, FacultesUSTHB faculte) {
         super(nom, prenom, matricule, reputation, profile); // Pass the Profile object
         this.anneeRecrutement = anneeRecrutement;
         this.faculte = faculte;
+        nbEnseignants++;
     }
 
     public int getAnneeRecrutement() {
@@ -18,12 +22,15 @@ public class Enseignant extends User {
         this.anneeRecrutement = anneeRecrutement;
     }
 
-    public String getFaculte() {
+    public FacultesUSTHB getFaculte() {
         return faculte;
     }
 
-    public void setFaculte(String faculte) {
+    public void setFaculte(FacultesUSTHB faculte) {
         this.faculte = faculte;
+    }
+    public static int getNbEnseignants(){
+        return nbEnseignants;
     }
 
     @Override

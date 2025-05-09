@@ -1,17 +1,19 @@
 package entities;
 
-import enums.StatusUser;
+
 import java.util.ArrayList;
 
-public class User {
+import enums.CourseStatus;
+
+public abstract class User {
     private String nom;
     private String prenom;
     private String matricule;
+
     private double reputation;
     private Profile profile; // Profile object with StatusUser
-    private ArrayList<Review> receivedReviews = new ArrayList<>(); //List to store reviews
     
-    
+    private ArrayList<Review> receivedReviews = new ArrayList<>();
 
     // Constructor
     public User(String nom, String prenom, String matricule, double reputation, Profile profile) {
@@ -22,30 +24,38 @@ public class User {
         this.profile = profile;
     }
 
-    // Getters and Setters
-    public String getNom() {
-        return nom;
+    // Default constructor
+    public User() {
+        this.nom = null;
+        this.prenom = null;
+        this.matricule = null;
+        this.reputation = 0.0;
+        this.profile = null;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
+    // Getters and Setters
+
+   public String getNom() { return nom; }
+
+   // public void setNom(String nom) {
+     //   this.nom = nom;
+    //}
 
     public String getPrenom() {
         return prenom;
     }
 
-    public void setPrenom(String prenom) {
-        this.prenom = prenom;
-    }
+    // public void setPrenom(String prenom) {
+    //     this.prenom = prenom;
+    // }
 
-    public String getMatricule() {
-        return matricule;
-    }
+    // public String getMatricule() {
+    //     return matricule;
+    // }
 
-    public void setMatricule(String matricule) {
-        this.matricule = matricule;
-    }
+    // public void setMatricule(String matricule) {
+    //     this.matricule = matricule;
+    // }
 
     public double getReputation() {
         return reputation;
@@ -59,11 +69,11 @@ public class User {
         return profile;
     }
 
-    public void setProfile(Profile profile) {
-        this.profile = profile;
-    }
+//    public void setProfile(Profile profile) {
+  //      this.profile = profile;
+   // }
     
-    // getreviews method to display the list of reviews
+ // getreviews method to display the list of reviews
     public void getreviews() {
     	if (receivedReviews.size() == 0) {
             System.out.println(nom + " has no reviews yet.");
@@ -76,6 +86,31 @@ public class User {
         }
     }
     
+    // addReview method to add a review to the list of reviews and update the user's reputation
+    public void addReview(Review review) {
+    	if (review.getRide().getStatusCourse() == CourseStatus.TERMINEE) {
+            System.out.println("Cannot add review. The ride is not completed.");
+            return;
+        }
+    	receivedReviews.add(review);
+    	updatereputation();
+    }
+    
+    // updatereputation method to calculate the user's reputation based on the reviews they have
+    private void updatereputation() {
+    	double sum = 0.0;
+    	int size = receivedReviews.size();
+    	
+    	if (size == 0) {
+    		return;
+    	}
+    	
+    	for (int i = 0; i < size; i++) {
+    		sum = sum + receivedReviews.get(i).getRating();
+    	}
+    	reputation = sum / size ;
+    }
+
     // toString method for displaying user information
     @Override
     public String toString() {
@@ -87,27 +122,8 @@ public class User {
                 ", profile=" + profile +
                 '}';
     }
-    
-    // addReview method to add a review to the list of reviews and update the user's reputation
-    public void addReview(Review review) {
-    	receivedReviews.add(review);
-    	updatereputation();
-    }
-    
-    // updatereputation method to calculate the user's reputation based on the reviews they have
-    private void updatereputation() {
-    	int sum = 0;
-    	int size = receivedReviews.size();
-    	
-    	if (size == 0) {
-    		return;
-    	}
-    	
-    	for (int i = 0; i < size; i++) {
-    		sum = sum + receivedReviews.get(i).getRating();
-    	}
-    	reputation = (double) sum / size ;
-    }
-    
-    
 }
+
+
+
+

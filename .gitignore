@@ -1,0 +1,5 @@
+echo "bin/" > .gitignore
+echo ".settings/" >> .gitignore
+echo ".classpath" >> .gitignore
+echo ".project" >> .gitignore
+/bin/
