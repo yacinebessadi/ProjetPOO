@@ -20,25 +20,11 @@ public class Etudiant extends User {
     public int getAnneeAdmission() {
         return anneeAdmission;
     }
-
-    public void setAnneeAdmission(int anneeAdmission) {
-        this.anneeAdmission = anneeAdmission;
-    }
-
     public FacultesUSTHB getFaculte() {
         return faculte;
     }
-
-    public void setFaculte(FacultesUSTHB faculte) {
-        this.faculte = faculte;
-    }
-
     public Specialite getSpecialite() {
         return specialite;
-    }
-
-    public void setSpecialite(Specialite specialite) {
-        this.specialite = specialite;
     }
     public static int getNbEtudiants() {
         return nbEtudiants;

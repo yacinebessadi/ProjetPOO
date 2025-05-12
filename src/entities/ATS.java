@@ -17,17 +17,8 @@ public class ATS extends User {
     public int getAnneeRecrutement() {
         return anneeRecrutement;
     }
-
-    public void setAnneeRecrutement(int anneeRecrutement) {
-        this.anneeRecrutement = anneeRecrutement;
-    }
-
     public String getServiceRattachement() {
         return serviceRattachement;
-    }
-
-    public void setServiceRattachement(String serviceRattachement) {
-        this.serviceRattachement = serviceRattachement;
     }
     public static int getNbATS() {
         return nbATS;

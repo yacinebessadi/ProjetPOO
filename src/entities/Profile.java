@@ -10,35 +10,28 @@ public class Profile {
 
     //ajouter 
     private int rideCount;  //ajouter une methode qui fait rideCount++
-    
-    // Constructor explicite
-    public Profile(StatusUser statut, TypeCourse typeCourse, Preferences preferences, Disponibilite disponibilite) {
-        this.statut = statut;
-        this.typeCourse = typeCourse;
-        this.preferences = preferences;
-        this.disponibilite = disponibilite;
-    }
-    
-    public int icrementRide(){
-       return rideCount++;
+    private int nbPlaces; // Number of places if chauffeur, null if passenger
 
-    }
-    // implicite
-    public Profile() {
-        this.statut = null;
-        this.typeCourse = null;
-        this.preferences = null;
-        this.disponibilite = null;
-    }
-
+   // Chauffeur constructor
+    public Profile(StatusUser statut, TypeCourse typeCourse, Preferences preferences, Disponibilite disponibilite, int nbPlaces) {
+    this.statut = statut;
+    this.typeCourse = typeCourse;
+    this.preferences = preferences;
+    this.disponibilite = disponibilite;
+    this.nbPlaces = nbPlaces;
+   }
+   //passenger constructor
+   public Profile(StatusUser statut, TypeCourse typeCourse, Preferences preferences, Disponibilite disponibilite) {
+    this.statut = statut;
+    this.typeCourse = typeCourse;
+    this.preferences = preferences;
+    this.disponibilite = disponibilite;
+    this.nbPlaces = 0; 
+}
     
    // Getters and Setters
     public StatusUser getStatut() {
         return statut;
-    }
-
-    public void setStatut(StatusUser statut) {
-        this.statut = statut;
     }
 
     public TypeCourse getTypeCourse() {
@@ -64,7 +57,32 @@ public class Profile {
     public void setDisponibilite(Disponibilite disponibilite) {
         this.disponibilite = disponibilite;
     }
+    public int getRideCount()
+	    { return rideCount;}
 
+    public int icrementRide(){
+        return rideCount++;
+ 
+     }
+    public int getnbPlaces(){
+        return this.nbPlaces;
+
+    }
+
+
+    public void decrementNbPlaces(){
+        if(this.statut==StatusUser.CHAUFFEUR && this.nbPlaces>0){
+            this.nbPlaces--; //i call this methode each time a Course is created because
+                              //the number of places is decremented each time a course is created
+        }
+    }
+
+    // Une méthode pour modifier le statut de l'utilisateur
+    public void changerStatus(StatusUser statut){
+    this.statut = statut;
+     }
+    
+    
     @Override
     public String toString() {
         return "Profile{" +

@@ -2,6 +2,7 @@ package enums;
 
 public enum Specialite {
     // Spécialités générales licence USTHB
+    LICENCE_INFORMATIQUE,
     BIOLOGIE,
     CHIMIE,
     ELECTRONIQUE,
@@ -9,7 +10,6 @@ public enum Specialite {
     GENIE_MECANIQUE,
     MATHEMATIQUES,
     PHYSIQUE,
-    LICENCE_INFORMATIQUE,
     SCIENCES_DE_LA_TERRE,
     GENIE_DES_PROCEDES,
     ELECTROTECHNIQUE,

@@ -1,12 +1,15 @@
 package entities;
 
+import java.util.ArrayList;
+
 public abstract class User {
     private String nom;
     private String prenom;
     private String matricule;
-
     private double reputation;
     private Profile profile; // Profile object with StatusUser
+
+    private ArrayList<Review> receivedReviews = new ArrayList<>(); // List to store reviews
 
     // Constructor
     public User(String nom, String prenom, String matricule, double reputation, Profile profile) {
@@ -27,44 +30,50 @@ public abstract class User {
     }
 
     // Getters and Setters
+    public String getNom() { return nom; }
 
-   public String getNom() { return nom; }
+    public String getPrenom() { return prenom; }
 
-   // public void setNom(String nom) {
-     //   this.nom = nom;
-    //}
+    public String getMatricule() { return matricule; }
 
-    public String getPrenom() {
-        return prenom;
+    public double getReputation() { return reputation; }
+    public void setReputation(double reputation) { this.reputation = reputation; }
+
+    public Profile getProfile() { return profile; }
+    public void setProfile(Profile profile) { this.profile = profile; }
+
+    public java.util.List<Review> getReceivedReviews() {
+        return receivedReviews;
     }
 
-    // public void setPrenom(String prenom) {
-    //     this.prenom = prenom;
-    // }
-
-    // public String getMatricule() {
-    //     return matricule;
-    // }
-
-    // public void setMatricule(String matricule) {
-    //     this.matricule = matricule;
-    // }
-
-    public double getReputation() {
-        return reputation;
+    // Review management
+    public void addReview(Review review) {
+        receivedReviews.add(review);
+        updatereputation();
     }
 
-    public void setReputation(double reputation) {
-        this.reputation = reputation;
+    public void getreviews() {
+        if (receivedReviews.size() == 0) {
+            System.out.println(nom + " has no reviews yet.");
+            return;
+        }
+        System.out.println("Reviews for " + nom + ":");
+        for (Review review : receivedReviews) {
+            System.out.println(" - " + review);
+        }
     }
 
-    public Profile getProfile() {
-        return profile;
+    private void updatereputation() {
+        int sum = 0;
+        int size = receivedReviews.size();
+        if (size == 0) {
+            return;
+        }
+        for (int i = 0; i < size; i++) {
+            sum = sum + receivedReviews.get(i).getRating();
+        }
+        this.reputation = (double) sum / size;
     }
-
-//    public void setProfile(Profile profile) {
-  //      this.profile = profile;
-   // }
 
     // toString method for displaying user information
     @Override

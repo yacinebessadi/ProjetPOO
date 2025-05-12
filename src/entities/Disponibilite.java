@@ -10,7 +10,7 @@ public class Disponibilite {
     private List<LocalDateTime> horaires; // List of specific availability times 
     private Itineraire itineraire; // User's itinerary (single point for passengers, multiple points for drivers)
 
-
+ 
 
     // Constructor
     public Disponibilite(DisponibiliteType type, List<LocalDateTime> horaires, Itineraire itineraire) {

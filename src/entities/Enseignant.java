@@ -18,16 +18,8 @@ public class Enseignant extends User {
         return anneeRecrutement;
     }
 
-    public void setAnneeRecrutement(int anneeRecrutement) {
-        this.anneeRecrutement = anneeRecrutement;
-    }
-
     public FacultesUSTHB getFaculte() {
         return faculte;
-    }
-
-    public void setFaculte(FacultesUSTHB faculte) {
-        this.faculte = faculte;
     }
     public static int getNbEnseignants(){
         return nbEnseignants;
